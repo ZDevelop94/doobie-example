@@ -94,14 +94,4 @@ object Main extends IOApp.Simple {
     } yield ()
 
   }
-
-  //Was confirming if IO.parTraverseN(3)(staff)(member => repo.insertData(member._1, member._2, member._3).transact(xa)).void
-  // is faster than
-  //staffIOs = staff.map(repo.insertData).map(_.transact(xa))
-  //_ <- staffIOs.parSequenceN(3)
-
-  //Hypothis was that the former is faster because the cats has an optimised algorithm that analysis the Functor at the same time as the indexed position of the collection
-  //where as .map .map has to loop through and munipulate the collection 3 times including the parSequence
-
-  //result is ====.....
 }
